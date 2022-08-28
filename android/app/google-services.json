@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "645032234963",
+    "project_id": "bottle-message-3891d",
+    "storage_bucket": "bottle-message-3891d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:645032234963:android:f1d526bb2c8f00364de926",
+        "android_client_info": {
+          "package_name": "com.bottlemessage"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "645032234963-8gv0h5l6s0p6svieq801qf7qdehesl35.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bottlemessage",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "645032234963-v0tmt15ou2gc8hl4edktv91cu1g0gd90.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqEGUhbObB8GN7m8RSbSifE5gSjJS0RHQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "645032234963-v0tmt15ou2gc8hl4edktv91cu1g0gd90.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
