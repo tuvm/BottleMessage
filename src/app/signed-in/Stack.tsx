@@ -1,23 +1,26 @@
-import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
 import {useAppSettings} from '../components/AppSettings';
 import {NotFound} from '../components/NotFound';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {App as GettingStarted} from '../../luna-app/App';
 import Profile from './Profile';
 import Settings from './Settings';
+import Main from './Main';
 
 const Stack = createStackNavigator();
-const TopTabs = createMaterialTopTabNavigator();
 
-const ProfileStack = () => {
+const SignedIn = () => {
   const appSettings = useAppSettings();
+
   return (
-    <Stack.Navigator initialRouteName="UserProfile">
+    <Stack.Navigator initialRouteName="Home">
+      <Stack.Screen
+        name="Home"
+        options={{headerShown: false}}
+        component={Main}
+      />
       <Stack.Screen
         name="UserProfile"
         component={Profile}
-        options={{headerShown: false}}
+        options={{title: appSettings.t('userInfo')}}
       />
       <Stack.Screen
         name="UserSettings"
@@ -30,33 +33,6 @@ const ProfileStack = () => {
         options={{title: appSettings.t('NotFound')}}
       />
     </Stack.Navigator>
-  );
-};
-
-const SignedIn = () => {
-  // Used for status bar layout in react-navigation
-  const insets = useSafeAreaInsets();
-  const appSettings = useAppSettings();
-
-  const screenOptions = {
-    tabBarStyle: {
-      paddingTop: insets.top,
-    },
-  };
-
-  return (
-    <TopTabs.Navigator initialRouteName="Home" screenOptions={screenOptions}>
-      <TopTabs.Screen
-        name="Home"
-        options={{title: appSettings.t('gettingStarted')}}
-        component={GettingStarted}
-      />
-      <TopTabs.Screen
-        name="User"
-        options={{title: appSettings.t('userInfo')}}
-        component={ProfileStack}
-      />
-    </TopTabs.Navigator>
   );
 };
 

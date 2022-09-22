@@ -25,6 +25,9 @@ function getSocialColor(type: SocialType): string {
   }
 }
 
+const ButtonIcon = (type: string) => () =>
+  <Icon name={type} color="#fff" size={17} />;
+
 function ProviderButton({
   style,
   type,
@@ -35,7 +38,7 @@ function ProviderButton({
   return (
     <Button
       style={[styles.button, style]}
-      icon={() => <Icon name={type} color="#fff" size={17} />}
+      icon={ButtonIcon(type)}
       mode="contained"
       color={getSocialColor(type)}
       dark
