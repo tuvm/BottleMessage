@@ -32,12 +32,14 @@ module.exports = {
     '@typescript-eslint/no-var-requires': 'off',
     'linebreak-style': ['error', 'unix'], // https://adaptivepatchwork.com/2012/03/01/mind-the-end-of-your-line/
     semi: ['error', 'always'],
-    'prettier/prettier': 'error',
+    'prettier/prettier': 'warn',
+    // 'object-curly-spacing': ['warn', 'always'],
     'react/display-name': 'off',
     'react/no-unescaped-entities': 'off',
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
     'no-shadow': 'off',
     '@typescript-eslint/no-shadow': ['error'],
+    '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '_' }],
   },
 };
