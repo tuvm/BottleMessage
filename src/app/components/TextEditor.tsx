@@ -39,7 +39,7 @@ export default function App() {
   return (
     <SafeAreaView style={styles.textEditor}>
       <View style={styles.container}>
-        <Pressable onPress={() => richText?.current?.dismissKeyboard()}>
+        <Pressable onPress={() => {}}>
           <Text style={styles.headerStyle}>Your awesome Content</Text>
           <View style={styles.htmlBoxStyle}>
             <Text>{descHTML}</Text>

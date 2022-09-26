@@ -3,16 +3,16 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import Message, {MessageType} from './Message';
 
 interface Props {
-  images?: MessageType[];
+  messages?: MessageType[];
   style?: ViewStyle;
 }
 
-function MethodList({images}: Props): JSX.Element {
+function MessageList({messages}: Props): JSX.Element {
   return (
     <View style={styles.row}>
       {/* {!!images && images.map((it, idx) => <Method key={idx} image={it} />)} */}
-      {!!images &&
-        images.map((it, idx) => (
+      {!!messages &&
+        messages.map((it, idx) => (
           <TouchableOpacity
             key={idx}
             onPress={() => {}}
@@ -35,12 +35,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 20,
     borderRadius: 20,
-    backgroundColor: 'lightcyan',
     // alignSelf: 'flex-start',
     marginHorizontal: '3%',
     marginVertical: '3%',
     marginBottom: 6,
-    minWidth: '44%',
+    minWidth: '27%',
     textAlign: 'center',
   },
   selected: {
@@ -49,4 +48,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MethodList;
+export default MessageList;

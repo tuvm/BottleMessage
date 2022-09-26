@@ -1,4 +1,4 @@
-import {StyleSheet, View, ViewStyle, Text} from 'react-native';
+import {StyleSheet, View, ViewStyle, Text, Image} from 'react-native';
 
 export interface MessageType {
   content: string;
@@ -12,22 +12,26 @@ interface Props {
 
 function Message({message}: Props): JSX.Element {
   return (
-    <View style={styles.method}>
-      <Text>{message?.content}</Text>
-      <Text>{message?.type}</Text>
+    <View style={styles.message}>
+      <Image
+        style={styles.image}
+        source={require('../../static/assets/letter-icon.png')}
+      />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  method: {
+  message: {
+    minWidth: '20%',
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: 'transparent',
   },
   image: {
-    width: 100,
-    height: 100,
+    width: 70,
+    height: 70,
   },
 });
 

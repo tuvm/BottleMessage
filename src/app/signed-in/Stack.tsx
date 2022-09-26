@@ -4,6 +4,7 @@ import {NotFound} from '../components/NotFound';
 import Profile from './Profile';
 import Settings from './Settings';
 import Main from './Main';
+import History from './History';
 
 const Stack = createStackNavigator();
 
@@ -21,6 +22,11 @@ const SignedIn = () => {
         name="UserProfile"
         component={Profile}
         options={{title: appSettings.t('userInfo')}}
+      />
+      <Stack.Screen
+        name="Messages"
+        component={History}
+        options={{title: appSettings.t('messages')}}
       />
       <Stack.Screen
         name="UserSettings"

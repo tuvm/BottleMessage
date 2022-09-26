@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 20,
     borderRadius: 20,
-    backgroundColor: 'lightcyan',
+    backgroundColor: 'ivory',
     // alignSelf: 'flex-start',
     marginHorizontal: '3%',
     marginVertical: '3%',

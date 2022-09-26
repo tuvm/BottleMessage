@@ -62,21 +62,17 @@ const Main = () => {
               source={{uri: user?.photoURL || undefined}}
             />
           </TouchableOpacity>
-          <TouchableOpacity>
-            <Button style={styles.headerBtn}>
-              <Text style={styles.btnText}>5 sent</Text>
-            </Button>
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <Button style={styles.headerBtn}>
-              <Text style={styles.btnText}>4 received</Text>
-            </Button>
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <Button style={styles.headerBtn}>
-              <Text style={styles.btnText}>9 written</Text>
-            </Button>
-          </TouchableOpacity>
+          <View style={styles.rightSide}>
+            <TouchableOpacity onPress={() => linkTo('/messages')}>
+              <Text style={styles.headerBtn}>5 sent</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => linkTo('/messages')}>
+              <Text style={styles.headerBtn}>4 received</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => linkTo('/messages')}>
+              <Text style={styles.headerBtn}>9 written</Text>
+            </TouchableOpacity>
+          </View>
         </View>
         <MethodList images={methods} />
         <TouchableOpacity>
@@ -101,12 +97,12 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
     alignItems: 'center',
   },
+  rightSide: {
+    flexDirection: 'row',
+  },
   headerBtn: {
-    backgroundColor: 'darkcyan',
-    // borderRadius: 40,
-    width: '30%',
-    // height: 30,
-    fontSize: 10,
+    color: 'darkcyan',
+    marginLeft: 10,
   },
   profileImage: {
     width: 40,
