@@ -5,6 +5,7 @@ import Profile from './Profile';
 import Settings from './Settings';
 import Main from './Main';
 import History from './History';
+import MessageDetail from './MessageDetail';
 
 const Stack = createStackNavigator();
 
@@ -26,7 +27,16 @@ const SignedIn = () => {
       <Stack.Screen
         name="Messages"
         component={History}
-        options={{title: appSettings.t('messages')}}
+        options={({
+          route: {
+            params: {type},
+          },
+        }) => ({title: type})}
+      />
+      <Stack.Screen
+        name="MessageDetail"
+        component={MessageDetail}
+        options={{title: appSettings.t('messageDetail')}}
       />
       <Stack.Screen
         name="UserSettings"

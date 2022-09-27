@@ -63,13 +63,22 @@ const Main = () => {
             />
           </TouchableOpacity>
           <View style={styles.rightSide}>
-            <TouchableOpacity onPress={() => linkTo('/messages')}>
+            <TouchableOpacity
+              onPress={() =>
+                linkTo({screen: 'Messages', params: {type: 'Received'}})
+              }>
               <Text style={styles.headerBtn}>5 sent</Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => linkTo('/messages')}>
+            <TouchableOpacity
+              onPress={() =>
+                linkTo({screen: 'Messages', params: {type: 'Received'}})
+              }>
               <Text style={styles.headerBtn}>4 received</Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => linkTo('/messages')}>
+            <TouchableOpacity
+              onPress={() =>
+                linkTo({screen: 'Messages', params: {type: 'Written'}})
+              }>
               <Text style={styles.headerBtn}>9 written</Text>
             </TouchableOpacity>
           </View>

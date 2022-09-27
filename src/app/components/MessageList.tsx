@@ -1,6 +1,7 @@
 import {StyleSheet, View, ViewStyle} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import Message, {MessageType} from './Message';
+import {useLinkTo} from '@react-navigation/native';
 
 interface Props {
   messages?: MessageType[];
@@ -8,6 +9,8 @@ interface Props {
 }
 
 function MessageList({messages}: Props): JSX.Element {
+  const linkTo = useLinkTo();
+
   return (
     <View style={styles.row}>
       {/* {!!images && images.map((it, idx) => <Method key={idx} image={it} />)} */}
@@ -15,7 +18,7 @@ function MessageList({messages}: Props): JSX.Element {
         messages.map((it, idx) => (
           <TouchableOpacity
             key={idx}
-            onPress={() => {}}
+            onPress={() => linkTo('/message/detail')}
             style={[styles.button]}>
             <Message message={it} />
           </TouchableOpacity>

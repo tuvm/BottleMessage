@@ -129,6 +129,7 @@ function App(): JSX.Element {
                     UserProfile: 'profile',
                     UserSettings: 'profile/edit',
                     Messages: 'messages',
+                    MessageDetail: 'message/detail',
                   },
                 },
               }}

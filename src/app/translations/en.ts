@@ -18,6 +18,7 @@ export const english: translation = {
   userInfo: 'User Info',
   settings: 'Settings',
   messages: 'Messages',
+  messageDetail: 'Message Detail',
 
   createAccountError: 'Create Account - Error',
   createAccountPasswordsDifferent: 'Passwords do not match',
