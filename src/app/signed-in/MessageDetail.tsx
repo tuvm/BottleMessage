@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import {
   StyleSheet,
   useColorScheme,
@@ -19,9 +19,14 @@ import {
 // https://github.com/react-native-community/react-native-template-typescript/blob/main/template/App.tsx
 // The SafeAreaView and StatusBar are commented as those characteristics are provided by react-navigation
 
-const MessageDetail = () => {
+const MessageDetail = ({route}: any) => {
   const isDarkMode = useColorScheme() === 'dark';
+  const {content} = route.params;
   const [message, setMessage] = useState('');
+
+  useEffect(() => {
+    setMessage(content);
+  }, [content]);
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
@@ -58,6 +63,8 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     padding: 10,
     fontSize: 20,
+    textAlign: 'left',
+    textAlignVertical: 'top',
   },
   startBtn: {
     backgroundColor: 'teal',

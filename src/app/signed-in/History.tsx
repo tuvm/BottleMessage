@@ -35,7 +35,7 @@ const messages = [
   },
 ];
 
-const History = ({route}) => {
+const History = ({route}: any) => {
   const isDarkMode = useColorScheme() === 'dark';
 
   const {type} = route.params;
@@ -47,7 +47,6 @@ const History = ({route}) => {
   return (
     <View style={styles.container}>
       <SafeAreaView style={backgroundStyle}>
-        <Text>{type}</Text>
         <MessageList messages={messages} />
       </SafeAreaView>
     </View>

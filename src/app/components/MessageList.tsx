@@ -9,7 +9,7 @@ interface Props {
 }
 
 function MessageList({messages}: Props): JSX.Element {
-  const linkTo = useLinkTo();
+  const linkTo = useLinkTo<any>();
 
   return (
     <View style={styles.row}>
@@ -18,7 +18,12 @@ function MessageList({messages}: Props): JSX.Element {
         messages.map((it, idx) => (
           <TouchableOpacity
             key={idx}
-            onPress={() => linkTo('/message/detail')}
+            onPress={() =>
+              linkTo({
+                screen: 'MessageDetail',
+                params: {content: it?.content},
+              })
+            }
             style={[styles.button]}>
             <Message message={it} />
           </TouchableOpacity>

@@ -48,7 +48,7 @@ const Main = () => {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
-  const linkTo = useLinkTo();
+  const linkTo = useLinkTo<any>();
   const user = useContext(UserContext);
   // const theme = useTheme();
 
