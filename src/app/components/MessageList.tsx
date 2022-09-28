@@ -4,7 +4,7 @@ import Message, {MessageType} from './Message';
 import {useLinkTo} from '@react-navigation/native';
 
 interface Props {
-  messages?: MessageType[];
+  messages?: MessageType[] | any[];
   style?: ViewStyle;
 }
 

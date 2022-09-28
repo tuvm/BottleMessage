@@ -1,10 +1,6 @@
-import {
-  StyleSheet,
-  useColorScheme,
-  View,
-  SafeAreaView,
-  Text,
-} from 'react-native';
+import {useEffect, useState} from 'react';
+import {StyleSheet, useColorScheme, View, SafeAreaView} from 'react-native';
+import firestore from '@react-native-firebase/firestore';
 import {
   Colors,
   // @ts-ignore -- these are not well typed, but are only example screens
@@ -16,29 +12,25 @@ import MessageList from './../components/MessageList';
 // https://github.com/react-native-community/react-native-template-typescript/blob/main/template/App.tsx
 // The SafeAreaView and StatusBar are commented as those characteristics are provided by react-navigation
 
-const messages = [
-  {
-    content: 'Hello baby',
-    type: 'Bình thủy tinh',
-  },
-  {
-    content: 'This is my example message',
-    type: 'Đèn trời',
-  },
-  {
-    content: 'this is my first message',
-    type: 'Hoa đăng',
-  },
-  {
-    content: 'world is changed',
-    type: 'Máy bay giấy',
-  },
-];
-
-const History = ({route}: any) => {
+const History = () => {
   const isDarkMode = useColorScheme() === 'dark';
+  const [messages, setMessages] = useState<any[]>([]);
 
-  const {type} = route.params;
+  useEffect(() => {
+    const subscriber = firestore()
+      .collection('Message')
+      .onSnapshot(querySnapshot => {
+        const data: any[] = [];
+        querySnapshot.forEach(documentSnapshot => {
+          data.push({
+            ...documentSnapshot.data(),
+          });
+        });
+        setMessages(data);
+      });
+
+    return () => subscriber();
+  }, []);
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,

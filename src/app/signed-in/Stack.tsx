@@ -31,7 +31,7 @@ const SignedIn = () => {
           route: {
             params: {type},
           },
-        }) => ({title: type})}
+        }: any) => ({title: type})}
       />
       <Stack.Screen
         name="MessageDetail"

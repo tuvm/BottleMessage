@@ -2417,6 +2417,11 @@
     "@expo/config-plugins" "^4.1.5"
     stacktrace-js "^2.0.0"
 
+"@react-native-firebase/firestore@^15.6.0":
+  version "15.6.0"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/firestore/-/firestore-15.6.0.tgz#c44354cc7ab2b199d41b5e790f91bf3a7d783ec4"
+  integrity sha512-gcFbYKoAJZzSR2zKl0vOw0aTcJhvVG9DRhin0dHuTc2VEfw+wD/GL3jFJBM2jxtCoLz9QKou/tbzt2Gbn1RxeA==
+
 "@react-native-firebase/perf@^14.5.0":
   version "14.11.1"
   resolved "https://registry.yarnpkg.com/@react-native-firebase/perf/-/perf-14.11.1.tgz#fb396435df4b694fb519bfaea413e38b1add2eec"
