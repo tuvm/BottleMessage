@@ -1,9 +1,5 @@
-import {StyleSheet, View, ViewStyle, Text, Image} from 'react-native';
-
-export interface MessageType {
-  content: string;
-  type: string;
-}
+import {MessageType} from '../util/interfaces';
+import {StyleSheet, View, ViewStyle, Image} from 'react-native';
 
 interface Props {
   message?: MessageType;

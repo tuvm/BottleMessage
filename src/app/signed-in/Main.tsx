@@ -16,6 +16,7 @@ import {useContext} from 'react';
 import {UserContext} from './../App';
 import MethodList from './../components/MethodList';
 import {TouchableOpacity} from 'react-native-gesture-handler';
+import {MESSAGE_TYPE} from '../util/constants';
 
 // *****************************************************************************************************
 // This pasted directly in from this file upstream
@@ -65,19 +66,25 @@ const Main = () => {
           <View style={styles.rightSide}>
             <TouchableOpacity
               onPress={() =>
-                linkTo({screen: 'Messages', params: {type: 'Received'}})
+                linkTo({screen: 'Messages', params: {type: MESSAGE_TYPE.SEND}})
               }>
               <Text style={styles.headerBtn}>5 sent</Text>
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() =>
-                linkTo({screen: 'Messages', params: {type: 'Received'}})
+                linkTo({
+                  screen: 'Messages',
+                  params: {type: MESSAGE_TYPE.RECEIVED},
+                })
               }>
               <Text style={styles.headerBtn}>4 received</Text>
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() =>
-                linkTo({screen: 'Messages', params: {type: 'Written'}})
+                linkTo({
+                  screen: 'Messages',
+                  params: {type: MESSAGE_TYPE.WRITTEN},
+                })
               }>
               <Text style={styles.headerBtn}>9 written</Text>
             </TouchableOpacity>

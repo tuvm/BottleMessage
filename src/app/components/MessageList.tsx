@@ -1,7 +1,8 @@
 import {StyleSheet, View, ViewStyle} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-import Message, {MessageType} from './Message';
+import Message from './Message';
 import {useLinkTo} from '@react-navigation/native';
+import {MessageType} from '../util/interfaces';
 
 interface Props {
   messages?: MessageType[] | any[];
