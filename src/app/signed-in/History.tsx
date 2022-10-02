@@ -10,7 +10,7 @@ import {
 import MessageList from './../components/MessageList';
 import {UserContext} from './../App';
 import {MESSAGE_STATUS, MESSAGE_TYPE} from '../util/constants';
-import {MessageType} from '../util/interfaces';
+import {MessageType, MessageData} from '../util/interfaces';
 
 // *****************************************************************************************************
 // This pasted directly in from this file upstream
@@ -45,8 +45,8 @@ const History = ({route}: any) => {
       const data: MessageType[] = [];
       if (querySnapshot) {
         querySnapshot.forEach(documentSnapshot => {
-          const m: MessageType = documentSnapshot.data() as MessageType;
-          data.push(m);
+          const m: MessageData = documentSnapshot.data() as MessageData;
+          data.push({id: documentSnapshot.id, data: m});
         });
         console.log(JSON.stringify(data));
         setMessages(data);

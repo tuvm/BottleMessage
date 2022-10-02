@@ -6,12 +6,14 @@ import {
   TextInput,
   Text,
   TouchableOpacity,
+  ToastAndroid,
 } from 'react-native';
 import {Button} from 'react-native-paper';
 import firestore from '@react-native-firebase/firestore';
-import {MessageType} from './../util/interfaces';
+import {MessageData, MessageType} from './../util/interfaces';
 import {UserContext} from './../App';
-import {MESSAGE_STATUS} from './../util/constants';
+import {MESSAGE_STATUS, MESSAGE_TYPE} from './../util/constants';
+import {useNavigation} from '@react-navigation/native';
 
 // *****************************************************************************************************
 // This pasted directly in from this file upstream
@@ -19,31 +21,68 @@ import {MESSAGE_STATUS} from './../util/constants';
 // The SafeAreaView and StatusBar are commented as those characteristics are provided by react-navigation
 
 const MessageDetail = ({route}: any) => {
-  const {content} = route.params;
-  const [message, setMessage] = useState('');
+  const {message, type} = route.params;
+  const [content, setContent] = useState('');
   const user = useContext(UserContext);
+  const navigation = useNavigation();
 
   useEffect(() => {
-    setMessage(content);
-  }, [content]);
+    if (message) {
+      setContent(message?.data?.content);
+    }
+  }, [message]);
 
-  const handleSendMessage = (type: string) => {
+  const toast = (action: string) => {
+    const toastMessage =
+      action === MESSAGE_STATUS.DRAFT ? 'Message is saved!' : 'Message is sent';
+    ToastAndroid.showWithGravityAndOffset(
+      toastMessage,
+      ToastAndroid.LONG,
+      ToastAndroid.BOTTOM,
+      25,
+      50,
+    );
+  };
+
+  const handleCreateMessage = (action: string) => {
     if (!user?.uid) {
       return;
     }
-    const data: MessageType = {
-      content: message,
+    const data: MessageData = {
+      content,
       type: 'Đèn trời',
       owner: user.uid,
       receiver: '',
       location: new firestore.GeoPoint(53.483959, -2.244644),
-      status: type,
+      status: action,
     };
     firestore()
       .collection('Message')
       .add(data)
       .then(() => {
         console.log('Message added!');
+        toast(action);
+        navigation.goBack();
+      });
+  };
+
+  const handleUpdateMessage = (action: string, _message: MessageType) => {
+    if (!user?.uid || !message?.id) {
+      return;
+    }
+    const newData: MessageData = {
+      ..._message?.data,
+      content,
+      status: action,
+    };
+    firestore()
+      .collection('Message')
+      .doc(message?.id)
+      .update(newData)
+      .then(() => {
+        console.log('Message update!');
+        toast(action);
+        navigation.goBack();
       });
   };
 
@@ -55,23 +94,33 @@ const MessageDetail = ({route}: any) => {
           multiline
           placeholder="Enter your message"
           numberOfLines={18}
-          onChangeText={text => setMessage(text)}
-          value={message}
+          onChangeText={text => setContent(text)}
+          value={content}
         />
-        <View style={styles.btnGroup}>
-          <TouchableOpacity
-            onPress={() => handleSendMessage(MESSAGE_STATUS.DRAFT)}>
-            <Button style={styles.startBtn}>
-              <Text style={styles.btnText}>Save</Text>
-            </Button>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => handleSendMessage(MESSAGE_STATUS.SENT)}>
-            <Button style={styles.startBtn}>
-              <Text style={styles.btnText}>Send</Text>
-            </Button>
-          </TouchableOpacity>
-        </View>
+        {(!message || message?.data?.status === MESSAGE_STATUS.DRAFT) && (
+          <View style={styles.btnGroup}>
+            <TouchableOpacity
+              onPress={() =>
+                type === MESSAGE_TYPE.NEW
+                  ? handleCreateMessage(MESSAGE_STATUS.DRAFT)
+                  : handleUpdateMessage(MESSAGE_STATUS.DRAFT, message)
+              }>
+              <Button style={styles.startBtn}>
+                <Text style={styles.btnText}>Save</Text>
+              </Button>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() =>
+                type === MESSAGE_TYPE.NEW
+                  ? handleCreateMessage(MESSAGE_STATUS.SENT)
+                  : handleUpdateMessage(MESSAGE_STATUS.SENT, message)
+              }>
+              <Button style={styles.startBtn}>
+                <Text style={styles.btnText}>Send</Text>
+              </Button>
+            </TouchableOpacity>
+          </View>
+        )}
       </SafeAreaView>
     </View>
   );

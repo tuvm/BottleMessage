@@ -23,7 +23,7 @@ function MessageList({messages, type}: Props): JSX.Element {
             onPress={() =>
               linkTo({
                 screen: 'MessageDetail',
-                params: {content: it?.content, type},
+                params: {message: it, type},
               })
             }
             style={[styles.button]}>
