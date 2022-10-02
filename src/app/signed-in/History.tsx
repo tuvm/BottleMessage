@@ -63,7 +63,7 @@ const History = ({route}: any) => {
   return (
     <View style={styles.container}>
       <SafeAreaView style={backgroundStyle}>
-        <MessageList messages={messages} />
+        <MessageList messages={messages} type={type} />
       </SafeAreaView>
     </View>
   );

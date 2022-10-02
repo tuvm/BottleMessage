@@ -5,11 +5,12 @@ import {useLinkTo} from '@react-navigation/native';
 import {MessageType} from '../util/interfaces';
 
 interface Props {
+  type: string;
   messages?: MessageType[] | any[];
   style?: ViewStyle;
 }
 
-function MessageList({messages}: Props): JSX.Element {
+function MessageList({messages, type}: Props): JSX.Element {
   const linkTo = useLinkTo<any>();
 
   return (
@@ -22,7 +23,7 @@ function MessageList({messages}: Props): JSX.Element {
             onPress={() =>
               linkTo({
                 screen: 'MessageDetail',
-                params: {content: it?.content},
+                params: {content: it?.content, type},
               })
             }
             style={[styles.button]}>

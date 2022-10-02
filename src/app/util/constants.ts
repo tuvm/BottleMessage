@@ -4,6 +4,7 @@ export const MESSAGE_STATUS = {
 };
 
 export const MESSAGE_TYPE = {
+  NEW: 'New',
   SEND: 'Sent',
   RECEIVED: 'Received',
   WRITTEN: 'Written',

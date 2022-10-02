@@ -91,7 +91,13 @@ const Main = () => {
           </View>
         </View>
         <MethodList images={methods} />
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() =>
+            linkTo({
+              screen: 'MessageDetail',
+              params: {type: MESSAGE_TYPE.NEW},
+            })
+          }>
           <Button style={styles.startBtn}>
             <Text style={styles.btnText}>GET STARTED</Text>
           </Button>
