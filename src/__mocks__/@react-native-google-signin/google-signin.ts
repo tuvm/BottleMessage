@@ -1,4 +1,4 @@
-import {NativeModules} from 'react-native';
+import { NativeModules } from 'react-native';
 
 jest.mock('@react-native-google-signin/google-signin', () => {
   const mockGoogleSignin = jest.requireActual(
@@ -34,4 +34,4 @@ NativeModules.RNGoogleSignin = {
   currentUserAsync: jest.fn(),
 };
 
-export default {NativeModules};
+export default { NativeModules };
