@@ -1,5 +1,5 @@
-import {StyleSheet, ViewStyle} from 'react-native';
-import {Button} from 'react-native-paper';
+import { StyleSheet, ViewStyle } from 'react-native';
+import { Button } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 type SocialType = 'facebook' | 'google' | 'apple' | 'phone';

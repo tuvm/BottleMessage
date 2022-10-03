@@ -1,4 +1,4 @@
-import {Image, StyleSheet, View, ViewStyle, Text} from 'react-native';
+import { Image, StyleSheet, View, ViewStyle, Text } from 'react-native';
 
 export interface MethodType {
   imageSrc: any;
@@ -10,7 +10,7 @@ interface Props {
   style?: ViewStyle;
 }
 
-function Method({image}: Props): JSX.Element {
+function Method({ image }: Props): JSX.Element {
   return (
     <View style={styles.method}>
       <Image style={[styles.image]} source={image?.imageSrc} />

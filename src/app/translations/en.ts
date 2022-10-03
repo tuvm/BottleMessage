@@ -1,4 +1,4 @@
-import {translation} from './index';
+import { translation } from './index';
 require('dayjs/locale/en');
 
 export const english: translation = {

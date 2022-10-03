@@ -1,5 +1,5 @@
-import {english} from './en';
-import {spanish} from './es';
+import { english } from './en';
+import { spanish } from './es';
 
 export interface translation {
   [key: string]: string;
@@ -9,4 +9,4 @@ export interface translationMap {
   [key: string]: translation;
 }
 
-export const translations: translationMap = {en: english, es: spanish};
+export const translations: translationMap = { en: english, es: spanish };

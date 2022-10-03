@@ -1,16 +1,16 @@
-import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
+import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth';
 import {
   AsYouType,
   CountryCode,
   parsePhoneNumberFromString,
 } from 'libphonenumber-js';
-import {Fragment, useRef, useState} from 'react';
-import {StyleSheet} from 'react-native';
-import CountryPicker, {Country} from 'react-native-country-picker-modal';
-import {Button, Paragraph, TextInput, useTheme} from 'react-native-paper';
-import {useAlerts} from 'react-native-paper-alerts';
+import { Fragment, useRef, useState } from 'react';
+import { StyleSheet } from 'react-native';
+import CountryPicker, { Country } from 'react-native-country-picker-modal';
+import { Button, Paragraph, TextInput, useTheme } from 'react-native-paper';
+import { useAlerts } from 'react-native-paper-alerts';
 
-import {useAppSettings} from '../components/AppSettings';
+import { useAppSettings } from '../components/AppSettings';
 
 type ConfirmationRef =
   | ((
@@ -51,7 +51,7 @@ function Phone(): JSX.Element {
         Alert.alert(
           appSettings.t('phone-auth-error'),
           appSettings.t(error.code ?? 'unknownError'),
-          [{text: appSettings.t('OK')}],
+          [{ text: appSettings.t('OK') }],
         );
       }
     }
@@ -85,7 +85,7 @@ function Phone(): JSX.Element {
         Alert.alert(
           appSettings.t('phone-auth-error'),
           appSettings.t(error.code ?? 'unknownError'),
-          [{text: appSettings.t('OK')}],
+          [{ text: appSettings.t('OK') }],
         );
       } finally {
         setLoading(false);

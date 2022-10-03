@@ -1,11 +1,11 @@
-import {useState} from 'react';
-import {StyleSheet, View} from 'react-native';
-import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
-import {Button, Paragraph, TextInput, useTheme} from 'react-native-paper';
-import {useLinkTo} from '@react-navigation/native';
-import {useAlerts} from 'react-native-paper-alerts';
+import { useState } from 'react';
+import { StyleSheet, View } from 'react-native';
+import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth';
+import { Button, Paragraph, TextInput, useTheme } from 'react-native-paper';
+import { useLinkTo } from '@react-navigation/native';
+import { useAlerts } from 'react-native-paper-alerts';
 
-import {useAppSettings} from '../components/AppSettings';
+import { useAppSettings } from '../components/AppSettings';
 
 function ForgotPassword(): JSX.Element {
   const [loading, setLoading] = useState<boolean>(false);
@@ -38,7 +38,7 @@ function ForgotPassword(): JSX.Element {
       Alert.alert(
         appSettings.t('forgotPasswordError'),
         appSettings.t(error.code ?? 'unknownError'),
-        [{text: appSettings.t('OK')}],
+        [{ text: appSettings.t('OK') }],
       );
     } finally {
       setLoading(false);
@@ -47,7 +47,7 @@ function ForgotPassword(): JSX.Element {
 
   return (
     <View
-      style={[styles.container, {backgroundColor: theme.colors.background}]}>
+      style={[styles.container, { backgroundColor: theme.colors.background }]}>
       <Paragraph>{appSettings.t('forgotPasswordInstructions')}</Paragraph>
       <TextInput
         autoFocus={true}

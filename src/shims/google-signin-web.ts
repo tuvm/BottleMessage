@@ -21,7 +21,7 @@ class GoogleSigninImpl {
     return false;
   }
 
-  async getTokens(): Promise<{idToken: string; accessToken: string}> {
+  async getTokens(): Promise<{ idToken: string; accessToken: string }> {
     return {
       idToken: 'badidtoken',
       accessToken: 'badaccesstoken',

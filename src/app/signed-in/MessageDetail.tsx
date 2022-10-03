@@ -1,4 +1,4 @@
-import {useState, useEffect, useContext} from 'react';
+import { useState, useEffect, useContext } from 'react';
 import {
   StyleSheet,
   View,
@@ -8,20 +8,20 @@ import {
   TouchableOpacity,
   ToastAndroid,
 } from 'react-native';
-import {Button} from 'react-native-paper';
+import { Button } from 'react-native-paper';
 import firestore from '@react-native-firebase/firestore';
-import {MessageData, MessageType} from './../util/interfaces';
-import {UserContext} from './../App';
-import {MESSAGE_STATUS, MESSAGE_TYPE} from './../util/constants';
-import {useNavigation} from '@react-navigation/native';
+import { MessageData, MessageType } from './../util/interfaces';
+import { UserContext } from './../App';
+import { MESSAGE_STATUS, MESSAGE_TYPE } from './../util/constants';
+import { useNavigation } from '@react-navigation/native';
 
 // *****************************************************************************************************
 // This pasted directly in from this file upstream
 // https://github.com/react-native-community/react-native-template-typescript/blob/main/template/App.tsx
 // The SafeAreaView and StatusBar are commented as those characteristics are provided by react-navigation
 
-const MessageDetail = ({route}: any) => {
-  const {message, type} = route.params;
+const MessageDetail = ({ route }: any) => {
+  const { message, type } = route.params;
   const [content, setContent] = useState('');
   const user = useContext(UserContext);
   const navigation = useNavigation();

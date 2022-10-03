@@ -1,7 +1,7 @@
 import appJson from '../app.json';
-import {StyleSheet, View} from 'react-native';
-import {createContext, Fragment, ReactNode, useEffect, useState} from 'react';
-import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
+import { StyleSheet, View } from 'react-native';
+import { createContext, Fragment, ReactNode, useEffect, useState } from 'react';
+import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth';
 import {
   Headline,
   ActivityIndicator,
@@ -13,9 +13,9 @@ import {
   initialWindowMetrics,
   SafeAreaProvider,
 } from 'react-native-safe-area-context';
-import {NavigationContainer} from '@react-navigation/native';
-import {useAppSettings} from './components/AppSettings';
-import {AlertsProvider} from 'react-native-paper-alerts';
+import { NavigationContainer } from '@react-navigation/native';
+import { useAppSettings } from './components/AppSettings';
+import { AlertsProvider } from 'react-native-paper-alerts';
 
 /**
  * Types
@@ -79,14 +79,14 @@ function App(): JSX.Element {
       <View
         style={[
           styles.loadingContainer,
-          {backgroundColor: appSettings.currentTheme.colors.background},
+          { backgroundColor: appSettings.currentTheme.colors.background },
         ]}>
         {!waiting && (
           <Fragment>
             <Headline
               style={[
                 styles.padded,
-                {color: appSettings.currentTheme.colors.text},
+                { color: appSettings.currentTheme.colors.text },
               ]}>
               {appSettings.t('loading')}...
             </Headline>
@@ -94,7 +94,7 @@ function App(): JSX.Element {
               size={'large'}
               theme={{
                 ...appSettings.currentTheme,
-                colors: {primary: appSettings.currentTheme.colors.accent},
+                colors: { primary: appSettings.currentTheme.colors.accent },
               }}
             />
           </Fragment>

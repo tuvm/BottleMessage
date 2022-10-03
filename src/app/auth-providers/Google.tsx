@@ -1,16 +1,16 @@
-import {useContext, useEffect, useState} from 'react';
+import { useContext, useEffect, useState } from 'react';
 import auth from '@react-native-firebase/auth';
-import {FirebaseError} from '@firebase/util';
-import {useAlerts} from 'react-native-paper-alerts';
+import { FirebaseError } from '@firebase/util';
+import { useAlerts } from 'react-native-paper-alerts';
 import {
   GoogleSignin,
   statusCodes,
 } from '@react-native-google-signin/google-signin';
 
-import {UserContext} from '../App';
-import {useAppSettings} from '../components/AppSettings';
+import { UserContext } from '../App';
+import { useAppSettings } from '../components/AppSettings';
 import ProviderButton from '../components/AuthProviderButton';
-import {getProviderButtonTitle} from '../util/helpers';
+import { getProviderButtonTitle } from '../util/helpers';
 
 const PROVIDER_ID = 'google.com';
 
@@ -20,7 +20,7 @@ function Google(): JSX.Element | null {
   const Alert = useAlerts();
   const appSettings = useAppSettings();
 
-  const {isOnlyProvider, title, variant} = getProviderButtonTitle(
+  const { isOnlyProvider, title, variant } = getProviderButtonTitle(
     user,
     PROVIDER_ID,
   );
@@ -37,7 +37,7 @@ function Google(): JSX.Element | null {
           await user.reload();
         } else {
           await GoogleSignin.signIn();
-          const {accessToken, idToken} = await GoogleSignin.getTokens();
+          const { accessToken, idToken } = await GoogleSignin.getTokens();
           const credential = auth.GoogleAuthProvider.credential(
             idToken,
             accessToken,
@@ -60,19 +60,19 @@ function Google(): JSX.Element | null {
             return Alert.alert(
               appSettings.t('googleAuthError'),
               appSettings.t('googleAuthCancelled'),
-              [{text: appSettings.t('OK')}],
+              [{ text: appSettings.t('OK') }],
             );
           case statusCodes.IN_PROGRESS:
             return Alert.alert(
               appSettings.t('googleAuthError'),
               appSettings.t('googleAuthInProgress'),
-              [{text: appSettings.t('OK')}],
+              [{ text: appSettings.t('OK') }],
             );
           case statusCodes.PLAY_SERVICES_NOT_AVAILABLE:
             return Alert.alert(
               appSettings.t('googleAuthError'),
               appSettings.t('googleAuthPlayServices'),
-              [{text: appSettings.t('OK')}],
+              [{ text: appSettings.t('OK') }],
             );
           default:
             switch (error.message) {
@@ -84,14 +84,14 @@ function Google(): JSX.Element | null {
                 return Alert.alert(
                   appSettings.t('googleAuthError'),
                   appSettings.t('googleAuthConfigError'),
-                  [{text: appSettings.t('OK')}],
+                  [{ text: appSettings.t('OK') }],
                 );
               default:
                 // TODO get catalog of all errors and translate them
                 return Alert.alert(
                   appSettings.t('googleAuthError'),
                   error.message,
-                  [{text: appSettings.t('OK')}],
+                  [{ text: appSettings.t('OK') }],
                 );
             }
         }

@@ -1,5 +1,5 @@
-import {useEffect, useState} from 'react';
-import {ScrollView, StyleSheet} from 'react-native';
+import { useEffect, useState } from 'react';
+import { ScrollView, StyleSheet } from 'react-native';
 import {
   Button,
   HelperText,
@@ -7,10 +7,10 @@ import {
   TextInput,
   useTheme,
 } from 'react-native-paper';
-import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
-import {useAlerts} from 'react-native-paper-alerts';
+import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth';
+import { useAlerts } from 'react-native-paper-alerts';
 
-import {useAppSettings} from '../components/AppSettings';
+import { useAppSettings } from '../components/AppSettings';
 
 function CreateAccount(): JSX.Element {
   const [loading, setLoading] = useState<boolean>(false);
@@ -45,14 +45,14 @@ function CreateAccount(): JSX.Element {
       Alert.alert(
         appSettings.t('createAccountError'),
         appSettings.t(error.code ?? 'unknownError'),
-        [{text: appSettings.t('OK')}],
+        [{ text: appSettings.t('OK') }],
       );
     }
   }
 
   return (
     <ScrollView
-      style={[styles.container, {backgroundColor: theme.colors.background}]}>
+      style={[styles.container, { backgroundColor: theme.colors.background }]}>
       <Paragraph>{appSettings.t('createAccountInstructions')}</Paragraph>
       <TextInput
         style={styles.input}

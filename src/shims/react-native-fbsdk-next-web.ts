@@ -1,4 +1,4 @@
-import {AccessToken} from 'react-native-fbsdk-next';
+import { AccessToken } from 'react-native-fbsdk-next';
 
 export class LoginManager {
   async getCurrentAccessToken(): Promise<AccessToken | null> {

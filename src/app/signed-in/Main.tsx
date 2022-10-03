@@ -6,17 +6,17 @@ import {
   Image,
   SafeAreaView,
 } from 'react-native';
-import {Button} from 'react-native-paper';
+import { Button } from 'react-native-paper';
 import {
   Colors,
   // @ts-ignore -- these are not well typed, but are only example screens
 } from '../../../node_modules/react-native/Libraries/NewAppScreen';
-import {useLinkTo} from '@react-navigation/native';
-import {useContext} from 'react';
-import {UserContext} from './../App';
+import { useLinkTo } from '@react-navigation/native';
+import { useContext } from 'react';
+import { UserContext } from './../App';
 import MethodList from './../components/MethodList';
-import {TouchableOpacity} from 'react-native-gesture-handler';
-import {MESSAGE_TYPE} from '../util/constants';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { MESSAGE_TYPE } from '../util/constants';
 
 // *****************************************************************************************************
 // This pasted directly in from this file upstream
@@ -60,13 +60,16 @@ const Main = () => {
           <TouchableOpacity onPress={() => linkTo('/profile')}>
             <Image
               style={styles.profileImage}
-              source={{uri: user?.photoURL || undefined}}
+              source={{ uri: user?.photoURL || undefined }}
             />
           </TouchableOpacity>
           <View style={styles.rightSide}>
             <TouchableOpacity
               onPress={() =>
-                linkTo({screen: 'Messages', params: {type: MESSAGE_TYPE.SEND}})
+                linkTo({
+                  screen: 'Messages',
+                  params: { type: MESSAGE_TYPE.SEND },
+                })
               }>
               <Text style={styles.headerBtn}>5 sent</Text>
             </TouchableOpacity>
@@ -74,7 +77,7 @@ const Main = () => {
               onPress={() =>
                 linkTo({
                   screen: 'Messages',
-                  params: {type: MESSAGE_TYPE.RECEIVED},
+                  params: { type: MESSAGE_TYPE.RECEIVED },
                 })
               }>
               <Text style={styles.headerBtn}>4 received</Text>
@@ -83,7 +86,7 @@ const Main = () => {
               onPress={() =>
                 linkTo({
                   screen: 'Messages',
-                  params: {type: MESSAGE_TYPE.WRITTEN},
+                  params: { type: MESSAGE_TYPE.WRITTEN },
                 })
               }>
               <Text style={styles.headerBtn}>9 written</Text>
@@ -95,7 +98,7 @@ const Main = () => {
           onPress={() =>
             linkTo({
               screen: 'MessageDetail',
-              params: {type: MESSAGE_TYPE.NEW},
+              params: { type: MESSAGE_TYPE.NEW },
             })
           }>
           <Button style={styles.startBtn}>

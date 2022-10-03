@@ -1,12 +1,12 @@
-import {useContext, useState} from 'react';
+import { useContext, useState } from 'react';
 import auth from '@react-native-firebase/auth';
-import {AccessToken, LoginManager} from 'react-native-fbsdk-next';
-import {useAlerts} from 'react-native-paper-alerts';
+import { AccessToken, LoginManager } from 'react-native-fbsdk-next';
+import { useAlerts } from 'react-native-paper-alerts';
 
-import {UserContext} from '../App';
-import {useAppSettings} from '../components/AppSettings';
+import { UserContext } from '../App';
+import { useAppSettings } from '../components/AppSettings';
 import ProviderButton from '../components/AuthProviderButton';
-import {getProviderButtonTitle} from '../util/helpers';
+import { getProviderButtonTitle } from '../util/helpers';
 
 const PROVIDER_ID = 'facebook.com';
 
@@ -16,7 +16,7 @@ function Facebook(): JSX.Element | null {
   const Alert = useAlerts();
   const appSettings = useAppSettings();
 
-  const {isOnlyProvider, title, variant} = getProviderButtonTitle(
+  const { isOnlyProvider, title, variant } = getProviderButtonTitle(
     user,
     PROVIDER_ID,
   );
@@ -30,7 +30,7 @@ function Facebook(): JSX.Element | null {
           await user.unlink(PROVIDER_ID);
           await user.reload();
         } else {
-          const {isCancelled} = await LoginManager.logInWithPermissions([
+          const { isCancelled } = await LoginManager.logInWithPermissions([
             'public_profile',
             'email',
           ]);
@@ -39,7 +39,7 @@ function Facebook(): JSX.Element | null {
             Alert.alert(
               appSettings.t('facebookAuthError'),
               appSettings.t('facebookAuthCancelled'),
-              [{text: appSettings.t('OK')}],
+              [{ text: appSettings.t('OK') }],
             );
           } else {
             const result = await AccessToken.getCurrentAccessToken();
@@ -47,7 +47,7 @@ function Facebook(): JSX.Element | null {
               throw new Error(appSettings.t('facebookAuthErrorMessage'));
             }
 
-            const {accessToken} = result;
+            const { accessToken } = result;
 
             const credential =
               auth.FacebookAuthProvider.credential(accessToken);
@@ -66,7 +66,7 @@ function Facebook(): JSX.Element | null {
         Alert.alert(
           appSettings.t('facebookAuthError'),
           (error as Error).message,
-          [{text: appSettings.t('OK')}],
+          [{ text: appSettings.t('OK') }],
         );
       }
     }

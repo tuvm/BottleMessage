@@ -1,14 +1,14 @@
-import {Fragment} from 'react';
-import {Platform, StyleSheet, View} from 'react-native';
-import {Button, useTheme} from 'react-native-paper';
-import {useLinkTo} from '@react-navigation/native';
+import { Fragment } from 'react';
+import { Platform, StyleSheet, View } from 'react-native';
+import { Button, useTheme } from 'react-native-paper';
+import { useLinkTo } from '@react-navigation/native';
 import Hero from '../components/Hero';
 import ProviderButton from '../components/AuthProviderButton';
 import EmailPassword from '../auth-providers/EmailPassword';
 import Facebook from '../auth-providers/Facebook';
 import Google from '../auth-providers/Google';
 import Apple from '../auth-providers/Apple';
-import {useAppSettings} from '../components/AppSettings';
+import { useAppSettings } from '../components/AppSettings';
 
 function SignIn() {
   const theme = useTheme();
@@ -45,7 +45,7 @@ function SignIn() {
         </Button>
 
         <View
-          style={[styles.divider, {backgroundColor: theme.colors.primary}]}
+          style={[styles.divider, { backgroundColor: theme.colors.primary }]}
         />
 
         {Platform.OS !== 'web' && <Facebook />}

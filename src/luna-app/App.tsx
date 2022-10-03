@@ -30,10 +30,10 @@ import {
   SafeAreaProvider,
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
-import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-import {NavigationContainer, useLinkTo} from '@react-navigation/native';
+import { NavigationContainer, useLinkTo } from '@react-navigation/native';
 
 // *****************************************************************************************************
 // This pasted directly in from this file upstream
@@ -41,7 +41,7 @@ import {NavigationContainer, useLinkTo} from '@react-navigation/native';
 // The SafeAreaView and StatusBar are commented as those characteristics are provided by react-navigation
 const Section: React.FC<{
   title: string;
-}> = ({children, title}) => {
+}> = ({ children, title }) => {
   const isDarkMode = useColorScheme() === 'dark';
   return (
     <View style={styles.sectionContainer}>
@@ -119,7 +119,7 @@ const TopTabNavigator = () => {
   const isDarkMode = useColorScheme() === 'dark';
   const accentColor = isDarkMode ? Colors.ligher : Colors.darker;
   const primaryColor = isDarkMode ? Colors.darker : Colors.lighter;
-  const backgroundStyle = {backgroundColor: primaryColor, flex: 1};
+  const backgroundStyle = { backgroundColor: primaryColor, flex: 1 };
 
   const DetailsTab = () => (
     <View style={[backgroundStyle, styles.detailsContainer]}>
@@ -148,8 +148,8 @@ const TopTabNavigator = () => {
       backgroundColor: primaryColor,
       paddingTop: insets.top,
     },
-    tabBarLabelStyle: {color: isDarkMode ? Colors.light : Colors.dark},
-    tabBarIndicatorStyle: {backgroundColor: accentColor},
+    tabBarLabelStyle: { color: isDarkMode ? Colors.light : Colors.dark },
+    tabBarIndicatorStyle: { backgroundColor: accentColor },
   };
 
   return (

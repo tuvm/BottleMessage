@@ -1,14 +1,14 @@
-import {StyleSheet, View, ViewStyle} from 'react-native';
-import {useState} from 'react';
-import Method, {MethodType} from './Method';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import { StyleSheet, View, ViewStyle } from 'react-native';
+import { useState } from 'react';
+import Method, { MethodType } from './Method';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 interface Props {
   images?: MethodType[];
   style?: ViewStyle;
 }
 
-function MethodList({images}: Props): JSX.Element {
+function MethodList({ images }: Props): JSX.Element {
   const [selectedValue, setSelectedValue] = useState<string>();
 
   return (

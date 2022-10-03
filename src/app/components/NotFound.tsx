@@ -1,7 +1,7 @@
-import {useLinkTo} from '@react-navigation/native';
-import {StyleSheet, View} from 'react-native';
-import {Button, Text} from 'react-native-paper';
-import {useAppSettings} from './AppSettings';
+import { useLinkTo } from '@react-navigation/native';
+import { StyleSheet, View } from 'react-native';
+import { Button, Text } from 'react-native-paper';
+import { useAppSettings } from './AppSettings';
 
 export const NotFound = () => {
   const appSettings = useAppSettings();

@@ -1,17 +1,17 @@
-import {useContext, useState} from 'react';
-import {Platform, StyleSheet} from 'react-native';
-import {FirebaseError} from '@firebase/util';
+import { useContext, useState } from 'react';
+import { Platform, StyleSheet } from 'react-native';
+import { FirebaseError } from '@firebase/util';
 import auth from '@react-native-firebase/auth';
 import appleAuth, {
   AppleButton,
   AppleRequestOperation,
   AppleRequestScope,
 } from '@invertase/react-native-apple-authentication';
-import {useAlerts} from 'react-native-paper-alerts';
+import { useAlerts } from 'react-native-paper-alerts';
 
-import {UserContext} from '../App';
-import {useAppSettings} from '../components/AppSettings';
-import {getProviderButtonTitle} from '../util/helpers';
+import { UserContext } from '../App';
+import { useAppSettings } from '../components/AppSettings';
+import { getProviderButtonTitle } from '../util/helpers';
 
 const PROVIDER_ID = 'apple.com';
 
@@ -25,7 +25,7 @@ function Apple(): JSX.Element | null {
     return null;
   }
 
-  const {isOnlyProvider, variant} = getProviderButtonTitle(user, PROVIDER_ID);
+  const { isOnlyProvider, variant } = getProviderButtonTitle(user, PROVIDER_ID);
 
   async function handleApple() {
     if (!loading) {
@@ -44,7 +44,7 @@ function Apple(): JSX.Element | null {
             ],
           });
 
-          const {identityToken, nonce} = appleAuthRequestResponse;
+          const { identityToken, nonce } = appleAuthRequestResponse;
           if (identityToken) {
             const credential = auth.AppleAuthProvider.credential(
               identityToken,
@@ -61,7 +61,7 @@ function Apple(): JSX.Element | null {
             Alert.alert(
               appSettings.t('appleAuthErrorTitle'),
               appSettings.t('appleAuthErrorMessage'),
-              [{text: appSettings.t('OK')}],
+              [{ text: appSettings.t('OK') }],
             );
           }
         }
@@ -71,7 +71,7 @@ function Apple(): JSX.Element | null {
         if (error.code !== '1001') {
           // TODO: translate all possible cases - just sending through raw now
           Alert.alert(appSettings.t('appleAuthErrorTitle'), error.message, [
-            {text: appSettings.t('OK')},
+            { text: appSettings.t('OK') },
           ]);
         }
       }

@@ -33,7 +33,6 @@ module.exports = {
     'linebreak-style': ['error', 'unix'], // https://adaptivepatchwork.com/2012/03/01/mind-the-end-of-your-line/
     semi: ['error', 'always'],
     'prettier/prettier': 'warn',
-    // 'object-curly-spacing': ['warn', 'always'],
     'react/display-name': 'off',
     'react/no-unescaped-entities': 'off',
     'react/jsx-uses-react': 'off',

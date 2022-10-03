@@ -1,10 +1,10 @@
-import {useState} from 'react';
-import {Image, StyleSheet, View} from 'react-native';
-import {Button, TextInput, useTheme} from 'react-native-paper';
-import auth, {FirebaseAuthTypes} from '@react-native-firebase/auth';
-import {useAlerts} from 'react-native-paper-alerts';
+import { useState } from 'react';
+import { Image, StyleSheet, View } from 'react-native';
+import { Button, TextInput, useTheme } from 'react-native-paper';
+import auth, { FirebaseAuthTypes } from '@react-native-firebase/auth';
+import { useAlerts } from 'react-native-paper-alerts';
 
-import {useAppSettings} from '../components/AppSettings';
+import { useAppSettings } from '../components/AppSettings';
 
 function EmailPassword(): JSX.Element {
   const [loading, setLoading] = useState(false);
@@ -30,7 +30,7 @@ function EmailPassword(): JSX.Element {
       Alert.alert(
         appSettings.t('login-error'),
         appSettings.t(error.code ?? 'unknownError'),
-        [{text: appSettings.t('OK')}],
+        [{ text: appSettings.t('OK') }],
       );
     }
   }

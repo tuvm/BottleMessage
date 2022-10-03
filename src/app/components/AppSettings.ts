@@ -1,16 +1,16 @@
 import i18n from 'i18n-js';
-import {useCallback, useEffect, useState} from 'react';
-import {I18nManager, Platform, useColorScheme} from 'react-native';
+import { useCallback, useEffect, useState } from 'react';
+import { I18nManager, Platform, useColorScheme } from 'react-native';
 import {
   findBestAvailableLanguage,
   addEventListener,
 } from 'react-native-localize';
 import analytics from '@react-native-firebase/analytics';
 import auth from '@react-native-firebase/auth';
-import {translations} from '../translations';
-import {darkTheme, defaultTheme} from '../theme';
-import {Theme as PaperTheme} from 'react-native-paper/lib/typescript/types';
-import {Theme as NavigationTheme} from '@react-navigation/native';
+import { translations } from '../translations';
+import { darkTheme, defaultTheme } from '../theme';
+import { Theme as PaperTheme } from 'react-native-paper/lib/typescript/types';
+import { Theme as NavigationTheme } from '@react-navigation/native';
 
 export type LanguageLocale = {
   languageTag: string;

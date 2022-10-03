@@ -1,8 +1,8 @@
-import {StyleSheet, View, ViewStyle} from 'react-native';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import { StyleSheet, View, ViewStyle } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import Message from './Message';
-import {useLinkTo} from '@react-navigation/native';
-import {MessageType} from '../util/interfaces';
+import { useLinkTo } from '@react-navigation/native';
+import { MessageType } from '../util/interfaces';
 
 interface Props {
   type: string;
@@ -10,7 +10,7 @@ interface Props {
   style?: ViewStyle;
 }
 
-function MessageList({messages, type}: Props): JSX.Element {
+function MessageList({ messages, type }: Props): JSX.Element {
   const linkTo = useLinkTo<any>();
 
   return (
@@ -23,7 +23,7 @@ function MessageList({messages, type}: Props): JSX.Element {
             onPress={() =>
               linkTo({
                 screen: 'MessageDetail',
-                params: {message: it, type},
+                params: { message: it, type },
               })
             }
             style={[styles.button]}>

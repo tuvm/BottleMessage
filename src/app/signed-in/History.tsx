@@ -1,5 +1,5 @@
-import {useEffect, useState, useContext} from 'react';
-import {StyleSheet, useColorScheme, View, SafeAreaView} from 'react-native';
+import { useEffect, useState, useContext } from 'react';
+import { StyleSheet, useColorScheme, View, SafeAreaView } from 'react-native';
 import firestore, {
   FirebaseFirestoreTypes,
 } from '@react-native-firebase/firestore';
@@ -8,20 +8,20 @@ import {
   // @ts-ignore -- these are not well typed, but are only example screens
 } from '../../../node_modules/react-native/Libraries/NewAppScreen';
 import MessageList from './../components/MessageList';
-import {UserContext} from './../App';
-import {MESSAGE_STATUS, MESSAGE_TYPE} from '../util/constants';
-import {MessageType, MessageData} from '../util/interfaces';
+import { UserContext } from './../App';
+import { MESSAGE_STATUS, MESSAGE_TYPE } from '../util/constants';
+import { MessageType, MessageData } from '../util/interfaces';
 
 // *****************************************************************************************************
 // This pasted directly in from this file upstream
 // https://github.com/react-native-community/react-native-template-typescript/blob/main/template/App.tsx
 // The SafeAreaView and StatusBar are commented as those characteristics are provided by react-navigation
 
-const History = ({route}: any) => {
+const History = ({ route }: any) => {
   const isDarkMode = useColorScheme() === 'dark';
   const [messages, setMessages] = useState<MessageType[]>([]);
   const user = useContext(UserContext);
-  const {type} = route.params;
+  const { type } = route.params;
 
   useEffect(() => {
     let collection: FirebaseFirestoreTypes.Query<FirebaseFirestoreTypes.DocumentData>;
@@ -46,7 +46,7 @@ const History = ({route}: any) => {
       if (querySnapshot) {
         querySnapshot.forEach(documentSnapshot => {
           const m: MessageData = documentSnapshot.data() as MessageData;
-          data.push({id: documentSnapshot.id, data: m});
+          data.push({ id: documentSnapshot.id, data: m });
         });
         console.log(JSON.stringify(data));
         setMessages(data);

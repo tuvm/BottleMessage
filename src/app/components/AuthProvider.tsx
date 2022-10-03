@@ -1,5 +1,5 @@
-import {StyleSheet, View, ViewStyle} from 'react-native';
-import {useTheme} from 'react-native-paper';
+import { StyleSheet, View, ViewStyle } from 'react-native';
+import { useTheme } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 interface Props {
@@ -8,14 +8,14 @@ interface Props {
   style?: ViewStyle;
 }
 
-const providerMap: {[key: string]: string} = {
+const providerMap: { [key: string]: string } = {
   password: 'email-lock',
   facebook: 'facebook',
   google: 'google',
   phone: 'phone',
 };
 
-function Provider({type, active, style}: Props): JSX.Element | null {
+function Provider({ type, active, style }: Props): JSX.Element | null {
   const theme = useTheme();
   const icon = providerMap[type];
 

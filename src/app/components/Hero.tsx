@@ -1,4 +1,4 @@
-import {Image, SafeAreaView, StyleSheet, View, ViewStyle} from 'react-native';
+import { Image, SafeAreaView, StyleSheet, View, ViewStyle } from 'react-native';
 
 interface Props {
   children?: React.ReactNode | React.ReactNode[];
@@ -7,9 +7,9 @@ interface Props {
   style?: ViewStyle;
 }
 
-function Hero({image, height, children, style}: Props): JSX.Element {
+function Hero({ image, height, children, style }: Props): JSX.Element {
   return (
-    <View style={[style, {height}]}>
+    <View style={[style, { height }]}>
       {!!image && (
         <Image
           style={[styles.absolute, styles.image]}

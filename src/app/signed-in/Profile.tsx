@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
-import {useContext} from 'react';
-import {Platform, StyleSheet, View} from 'react-native';
+import { useContext } from 'react';
+import { Platform, StyleSheet, View } from 'react-native';
 import {
   Avatar,
   Caption,
@@ -11,15 +11,15 @@ import {
   Title,
 } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import {useLinkTo} from '@react-navigation/native';
+import { useLinkTo } from '@react-navigation/native';
 
-import {UserContext} from '../App';
+import { UserContext } from '../App';
 import Hero from '../components/Hero';
 import Provider from '../components/AuthProvider';
 import Facebook from '../auth-providers/Facebook';
 import Google from '../auth-providers/Google';
 import Apple from '../auth-providers/Apple';
-import {getProviders} from '../util/helpers';
+import { getProviders } from '../util/helpers';
 import {
   fallbackLanguageLocale,
   useAppSettings,
@@ -42,10 +42,10 @@ function Profile() {
 
   return (
     <View style={styles.container}>
-      <Hero height={60} style={{backgroundColor: theme.colors.primary}} />
+      <Hero height={60} style={{ backgroundColor: theme.colors.primary }} />
       <View style={[styles.content, styles.profile]}>
         {user.photoURL ? (
-          <Avatar.Image size={80} source={{uri: user.photoURL}} />
+          <Avatar.Image size={80} source={{ uri: user.photoURL }} />
         ) : (
           <Avatar.Text
             size={80}
@@ -56,7 +56,7 @@ function Profile() {
                 ? user.email.substring(0, 2).toUpperCase()
                 : 'A'
             }
-            style={[styles.avatar, {borderColor: theme.colors.background}]}
+            style={[styles.avatar, { borderColor: theme.colors.background }]}
           />
         )}
       </View>
@@ -82,14 +82,15 @@ function Profile() {
           </Caption>
         )}
       </View>
-      <View style={[styles.providers, {backgroundColor: theme.colors.surface}]}>
+      <View
+        style={[styles.providers, { backgroundColor: theme.colors.surface }]}>
         <Provider type="password" active={providers.includes('password')} />
         <Provider type="facebook" active={providers.includes('facebook.com')} />
         <Provider type="google" active={providers.includes('google.com')} />
         <Provider type="phone" active={providers.includes('phone')} />
       </View>
       <FAB
-        style={[styles.fab, {backgroundColor: theme.colors.primary}]}
+        style={[styles.fab, { backgroundColor: theme.colors.primary }]}
         icon="account-settings"
         onPress={() => linkTo('/profile/edit')}
       />

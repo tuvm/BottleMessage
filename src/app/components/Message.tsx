@@ -1,12 +1,12 @@
-import {MessageType} from '../util/interfaces';
-import {StyleSheet, View, ViewStyle, Image} from 'react-native';
+import { MessageType } from '../util/interfaces';
+import { StyleSheet, View, ViewStyle, Image } from 'react-native';
 
 interface Props {
   message?: MessageType;
   style?: ViewStyle;
 }
 
-function Message({message}: Props): JSX.Element {
+function Message({ message }: Props): JSX.Element {
   return (
     <View style={styles.message}>
       <Image

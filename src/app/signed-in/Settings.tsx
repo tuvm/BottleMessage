@@ -1,7 +1,7 @@
-import {useEffect, useState} from 'react';
-import {ScrollView, StyleSheet, View} from 'react-native';
+import { useEffect, useState } from 'react';
+import { ScrollView, StyleSheet, View } from 'react-native';
 import auth from '@react-native-firebase/auth';
-import {GoogleSignin} from '@react-native-google-signin/google-signin';
+import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import {
   Banner,
   Button,
@@ -13,9 +13,9 @@ import {
   useTheme,
 } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import {useAlerts} from 'react-native-paper-alerts';
+import { useAlerts } from 'react-native-paper-alerts';
 
-import {useAppSettings} from '../components/AppSettings';
+import { useAppSettings } from '../components/AppSettings';
 
 function EditProfile(): JSX.Element | null {
   const user = auth().currentUser;
@@ -68,12 +68,12 @@ function EditProfile(): JSX.Element | null {
         Alert.alert(
           appSettings.t('userNameDisplayUpdatedTitle'),
           appSettings.t('userNameDisplayUpdateMessage'),
-          [{text: appSettings.t('OK')}],
+          [{ text: appSettings.t('OK') }],
         );
         await user.reload();
       } catch (e) {
         Alert.alert(appSettings.t('userUpdateError'), (e as Error).message, [
-          {text: appSettings.t('OK')},
+          { text: appSettings.t('OK') },
         ]);
       } finally {
         setSavingName(false);
@@ -134,7 +134,7 @@ function EditProfile(): JSX.Element | null {
         Alert.alert(
           appSettings.t('userUpdateError'),
           appSettings.t('change-password-error'),
-          [{text: appSettings.t('OK')}],
+          [{ text: appSettings.t('OK') }],
         );
       } finally {
         setSavingPassword(false);
@@ -148,7 +148,7 @@ function EditProfile(): JSX.Element | null {
 
   return (
     <ScrollView
-      style={[styles.container, {backgroundColor: theme.colors.background}]}>
+      style={[styles.container, { backgroundColor: theme.colors.background }]}>
       <Banner
         visible={!user.emailVerified}
         actions={[
@@ -172,13 +172,13 @@ function EditProfile(): JSX.Element | null {
                       '". ' +
                       appSettings.t('userEmailVerificationInstructions2') +
                       '.',
-                    [{text: appSettings.t('OK')}],
+                    [{ text: appSettings.t('OK') }],
                   ),
                 );
             },
           },
         ]}
-        icon={({size}) => (
+        icon={({ size }) => (
           <Icon name="alert-decagram" size={size} color="#f44336" />
         )}>
         {appSettings.t('userEmailVerificationBanner')}
